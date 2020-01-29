@@ -1,4 +1,4 @@
-package com.mvxrnexample;
+package pl.ddudek.mvxrnexample;
 
 import android.app.Application;
 import android.content.Context;
@@ -9,6 +9,8 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
+import pl.ddudek.mvxrnexample.BuildConfig;
 
 public class MainApplication extends Application implements ReactApplication {
 
