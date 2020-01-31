@@ -7,21 +7,23 @@ import androidx.databinding.DataBindingUtil
 import pl.ddudek.mvxrnexample.R
 import pl.ddudek.mvxrnexample.databinding.ActivityMainBinding
 
-class MainMvcView (layoutInflater: LayoutInflater, parent: ViewGroup?) {
+class ExampleViewAndroidImpl (layoutInflater: LayoutInflater, parent: ViewGroup?) : ExampleView {
 
     private val viewBinding: ActivityMainBinding = DataBindingUtil.inflate(layoutInflater, R.layout.activity_main, parent, false)
 
-    fun getRootView(): View {
+    override fun onCreated(initialState: ExampleView.ViewState?) {
+        initialState?.let { applyViewState(initialState) }
+    }
+
+    override fun getRootView(): View {
         return viewBinding.root
     }
 
-    fun bindViewState(state: ViewState) {
+    override fun applyViewState(state: ExampleView.ViewState) {
         viewBinding.state = state
     }
 
-    data class ViewState (
-            val title: String,
-            val subtitle: String,
-            val loading: Boolean
-    )
+    override fun destroy() {
+        // no op
+    }
 }
